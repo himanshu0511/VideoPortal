@@ -18,7 +18,7 @@
     <div class="header-container" ng-controller="HeaderController">
         <h3>Video Portal</h3>
         <h4 ng-if="userData && userData.userName" ng-bind="userData.userName"></h4>
-        <h4> <a href='#'>Logout</a> </h4>
+        <h4> <a href='/logout'>Logout</a> </h4>
     </div>
     <div ng-view></div>
     <script type="text/javascript" src="/lib/angular/angular.js"></script>
@@ -29,6 +29,7 @@
     <script type="text/javascript" src="/src/js/resources.js"></script>
     <script type="text/javascript" src="/src/js/routes.js"></script>
     <script type="text/javascript" src="/src/js/controllers/login.js"></script>
+    <script type="text/javascript" src="/src/js/controllers/logOut.js"></script>
     <script type="text/javascript" src="/src/js/controllers/header.js"></script>
     <script type="text/javascript" src="/src/js/controllers/videoList.js"></script>
     <script type="text/javascript" src="/src/js/controllers/videoDetail.js"></script>

@@ -18,4 +18,9 @@ angular.module("videoPortal").config(["$routeProvider", "$locationProvider", fun
         templateUrl: '/src/views/videoDetail.html',
         authorize: true,
       })
+      .when('/logout', {
+        controller: 'LogOutController',
+        template: "",
+        authorize: true,
+      })
 }]);

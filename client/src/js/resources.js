@@ -35,7 +35,7 @@ angular.module("videoPortal")
       method: 'POST',
       isArray: false
     },
-    'logout': {
+    'logOut': {
       method: 'GET',
       url: '/user/logout'
     }

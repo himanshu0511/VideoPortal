@@ -940,6 +940,10 @@ Direction
     /*flex: 4;*/
 /*}*/
 
+body {
+    background: #1AA8D6;
+}
+
 @media (min-width:801px) {
 
     .box {
