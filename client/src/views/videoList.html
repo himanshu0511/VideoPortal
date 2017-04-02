@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="box" ng-repeat="video in data.videos">
+        <h5 ng-bind="video.name"></h5>
+        <video class="video-ele" controls="">
+          <source type="video/mp4" src="/{{video.url}}">
+          Your browser does not support the video tag.
+        </video>
+        <div class="rating large star-icon direction-rtl value-1 half color-default label-top">
+            <div class="star-container">
+                <div class="star">
+                    <i class="star-empty"></i>
+                    <i class="star-half"></i>
+                    <i class="star-filled"></i>
+                </div>
+                <div class="star">
+                    <i class="star-empty"></i>
+                    <i class="star-half"></i>
+                    <i class="star-filled"></i>
+                </div>
+                <div class="star">
+                    <i class="star-empty"></i>
+                    <i class="star-half"></i>
+                    <i class="star-filled"></i>
+                </div>
+                <div class="star">
+                    <i class="star-empty"></i>
+                    <i class="star-half"></i>
+                    <i class="star-filled"></i>
+                </div>
+                <div class="star">
+                    <i class="star-empty"></i>
+                    <i class="star-half"></i>
+                    <i class="star-filled"></i>
+                </div>
+            </div>
+        </div>
+        <p ng-bind="video.description"></p>
+    </div>
+</div>

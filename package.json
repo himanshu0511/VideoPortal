@@ -1,0 +1,25 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node $NODE_DEBUG_OPTION index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "1.6.4",
+    "angular-cookies": "^1.6.4",
+    "angular-resource": "^1.6.4",
+    "angular-route": "1.6.4",
+    "body-parser": "^1.15.1",
+    "express": "^4.15.2",
+    "express-http2-workaround": "^1.1.2",
+    "himanshu-http2": "1.0.1",
+    "mongoose": "^4.4.20",
+    "morgan": "^1.7.0",
+    "q": "^1.4.1"
+  }
+}
