@@ -1,6 +1,14 @@
-<form ng-submit="login(loginForm)" name="loginForm" novalidate="">
-    <input type="text" name="username" ng-model="loginFormData.userName">
-    <br/>
-    <input type="password" name="password" ng-model="loginFormData.password">
+<form ng-submit="login(loginForm)" name="loginForm" novalidate="" class="ng-pristine ng-valid ng-scope login-form">
+    <div class='element-group'>
+        <input id="username" type="text" name="username" placeholder="Username" ng-model="loginFormData.userName">
+        <!--<span class=error>User name in wrong format</span>-->
+    </div>
+    <div class='element-group'>
+        <input id="password" type="password" name="password" placeholder="Password" ng-model="loginFormData.password">
+        <!--<span class=error>Password is wrong</span>-->
+    </div>
     <button type="submit">Login</button>
+    <div class='common-error-wrapper'>
+        <!--<span class='common-error error'>Username Or Password is Wrong</span>-->
+    </div>
 </form>

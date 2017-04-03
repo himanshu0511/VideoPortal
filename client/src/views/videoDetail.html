@@ -36,9 +36,9 @@
         </div>
         <p ng-bind="data.video.description"></p>
     </div>
-    <div class="box unselected-box" ng-repeat="video in data.videos" ng-if="video._id!=data.id">
+    <div class="box unselected-box" ng-repeat="video in data.videos" ng-click="watchVideo(video._id)" ng-if="video._id!=data.id">
         <h5 ng-bind="video.name"></h5>
-        <video class="video-ele" controls="">
+        <video class="video-ele">
           <source type="video/mp4" src="/{{video.url}}">
           Your browser does not support the video tag.
         </video>

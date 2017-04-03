@@ -1,5 +1,8 @@
-angular.module('videoPortal').controller('VideoDetailController', ['VideoService', '$scope', '$routeParams', function(VideoService, $scope, $routeParams){
+angular.module('videoPortal').controller('VideoDetailController', ['VideoService', '$scope', '$routeParams', '$location', function(VideoService, $scope, $routeParams, $location){
   $scope = Object.assign($scope, { data: {id: $routeParams.id,video: {}, videos: []}});
+  $scope.watchVideo = function(id){
+    $location.path(`/watch/${id}`);
+  };
   Promise.all([
     VideoService.getVideo($routeParams.id),
     VideoService.getVideos()
