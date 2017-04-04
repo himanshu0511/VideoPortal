@@ -5,35 +5,7 @@
           <source type="video/mp4" ng-if="video.url" src="/{{video.url}}">
           Your browser does not support the video tag.
         </video>
-        <div class="rating large star-icon direction-rtl value-1 half color-default label-top">
-            <div class="star-container">
-                <div class="star">
-                    <i class="star-empty"></i>
-                    <i class="star-half"></i>
-                    <i class="star-filled"></i>
-                </div>
-                <div class="star">
-                    <i class="star-empty"></i>
-                    <i class="star-half"></i>
-                    <i class="star-filled"></i>
-                </div>
-                <div class="star">
-                    <i class="star-empty"></i>
-                    <i class="star-half"></i>
-                    <i class="star-filled"></i>
-                </div>
-                <div class="star">
-                    <i class="star-empty"></i>
-                    <i class="star-half"></i>
-                    <i class="star-filled"></i>
-                </div>
-                <div class="star">
-                    <i class="star-empty"></i>
-                    <i class="star-half"></i>
-                    <i class="star-filled"></i>
-                </div>
-            </div>
-        </div>
+        <jk-rating-stars max-rating="5" rating="video.rating" read-only="true" ></jk-rating-stars>
         <p ng-bind="video.description"></p>
     </div>
 </div>

@@ -1,15 +1,24 @@
 angular.module('videoPortal').factory('VideoService', ['VideoApi', 'UserService', function(VideoApi, UserService){
+  function aggregateRating(video){
+      if(video && video.ratings && video.ratings.reduce) {
+        return Math.round(video.ratings.reduce((agg, a) => agg + a, 0) / video.ratings.length);
+      }
+        return 0;
+    }
   return {
     getVideos: function() {
       return UserService.userInfo()
         .then(function(userData){
-          return VideoApi.list({sessionId: userData.sessionId}).$promise.then(function(response){return response.data});
+          return VideoApi.list({sessionId: userData.sessionId}).$promise.then(function(response){return response.data.map((video) => Object.assign(video, {rating: aggregateRating(video)}))});
         });
     },
     getVideo: function(id) {
       return UserService.userInfo()
         .then(function(userData){
-          return VideoApi.get({videoId: id, sessionId: userData.sessionId}).$promise.then(function(response){return response.data});
+          return VideoApi.get({videoId: id, sessionId: userData.sessionId}).$promise.then(function(response){
+            debugger;
+            return Object.assign(response.data, {rating: aggregateRating(response.data)});
+          });
         });
     },
     setRating: function(videoId, rating) {
@@ -18,5 +27,14 @@ angular.module('videoPortal').factory('VideoService', ['VideoApi', 'UserService'
           return VideoApi.rate({sessionId: userData.sessionId}, {videoId, rating}).$promise.then(function(response){return response.data});
         });
     },
+    // fetchRating: function(video){
+    //   if(video && video.ratings && video.ratings.reduce) {
+    //     video.rating = Math.round(video.ratings.reduce((agg, a) => agg + a, 0) / video.ratings.length);
+    //   }
+    //   else{
+    //     video.rating = 0;
+    //   }
+    //   return video;
+    // }
   }
 }]);
