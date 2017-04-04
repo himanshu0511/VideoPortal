@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start karma.conf.js --single-run",
     "start": "node $NODE_DEBUG_OPTION index.js"
   },
   "author": "",
@@ -13,13 +13,23 @@
     "angular": "1.6.4",
     "angular-cookies": "^1.6.4",
     "angular-messages": "^1.6.4",
+    "angular-mocks": "^1.6.4",
     "angular-resource": "^1.6.4",
     "angular-route": "1.6.4",
     "body-parser": "^1.15.1",
     "express": "^4.15.2",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
     "mongoose": "^4.4.20",
     "morgan": "^1.7.0",
     "q": "^1.4.1",
     "spdy": "^3.4.4"
+  },
+  "devDependencies": {
+    "jasmine": "^2.5.3",
+    "karma": "^1.5.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-requirejs": "^1.1.0",
+    "requirejs": "^2.3.3"
   }
 }
