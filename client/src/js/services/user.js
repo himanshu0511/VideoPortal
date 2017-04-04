@@ -23,7 +23,6 @@ angular.module('videoPortal').factory('UserService', ['$cookies', 'UserApi', fun
     },
     logOut: function() {
       return UserApi.logOut({sessionId: $cookies.get('sessionId')}).$promise.then((data) => {
-        debugger;
         $cookies.remove('userName');
         $cookies.remove('sessionId');
         return data;

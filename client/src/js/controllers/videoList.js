@@ -10,5 +10,11 @@ angular.module('videoPortal').controller('VideoListController', ['VideoService',
   VideoService.getVideos().then(function(videos) {
       $scope.data.videos = videos;
       $scope.$apply();
+    })
+    .catch(function(error) {
+      debugger;
+      if(error && error.data && error.data.code === 'NotLoggedIn'){
+        $location.path('/');
+      }
     });
 }]);

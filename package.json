@@ -17,10 +17,9 @@
     "angular-route": "1.6.4",
     "body-parser": "^1.15.1",
     "express": "^4.15.2",
-    "express-http2-workaround": "^1.1.2",
-    "himanshu-http2": "1.0.1",
     "mongoose": "^4.4.20",
     "morgan": "^1.7.0",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "spdy": "^3.4.4"
   }
 }

@@ -1,8 +1,9 @@
-angular.module("videoPortal").config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
+angular.module("videoPortal").config(["$routeProvider", "$locationProvider", "$compileProvider", function($routeProvider, $locationProvider, $compileProvider) {
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false
-});
+  });
+  $compileProvider.debugInfoEnabled(false);
   $routeProvider
       .when('/', {
         controller: 'LoginController',

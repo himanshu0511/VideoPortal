@@ -1,6 +1,7 @@
-angular.module('videoPortal').controller('HeaderController', ['UserService', '$scope', function(UserService, $scope){
+angular.module('videoPortal').controller('HeaderController', ['UserService', '$scope', '$rootScope', function(UserService, $scope, $rootScope){
   $scope = Object.assign($scope, {userData: {userName: ''}});
-  UserService.userInfo()
+  function updateHeaders (){
+    UserService.userInfo()
      .then(function(userData){
        $scope.userData = userData;
        $scope.$apply();
@@ -8,5 +9,13 @@ angular.module('videoPortal').controller('HeaderController', ['UserService', '$s
      .catch(function(){
        $scope.userData = {};
        $scope.$apply();
-     })
+     });
+  }
+  $rootScope.$on('UserLoggedIn', function(){
+    updateHeaders();
+    debugger;
+  });
+  $rootScope.$on('UserLoggedOut', function(){
+   updateHeaders();
+  });
 }]);

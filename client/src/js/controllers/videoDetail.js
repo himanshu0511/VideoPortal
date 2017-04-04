@@ -21,9 +21,14 @@ angular.module('videoPortal').controller('VideoDetailController', ['VideoService
     VideoService.getVideos()
       ])
     .then(function([video, videos]){
-    Object.assign($scope.data.video, video);
-    Object.assign($scope.data.videos, videos);
-    $scope.$apply();
-  });
+      Object.assign($scope.data.video, video);
+      Object.assign($scope.data.videos, videos);
+      $scope.$apply();
+    })
+    .catch(function(error) {
+      if(error && error.data && error.data.code === 'NotLoggedIn'){
+        $location.path('/');
+      }
+    });
 }]);
 

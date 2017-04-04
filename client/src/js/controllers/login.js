@@ -1,4 +1,4 @@
-angular.module('videoPortal').controller('LoginController', ['UserService', 'ConstantService', '$scope', '$location', function(UserService, constants, $scope, $location){
+angular.module('videoPortal').controller('LoginController', ['UserService', 'ConstantService', '$scope', '$location', '$rootScope', function(UserService, constants, $scope, $location, $rootScope){
   $scope.loginFormData = {
     username: '',
     password: ''
@@ -11,11 +11,10 @@ angular.module('videoPortal').controller('LoginController', ['UserService', 'Con
     if(form.$valid) {
       UserService.authenticate($scope.loginFormData)
         .then(function () {
-          debugger;
           $location.path('/play-list');
+          $rootScope.$broadcast('UserLoggedIn');
         })
         .catch((error) => {
-        debugger;
           if(error && error.data && error.data.code === 'InvalidUserNameOrPassword') {
             form.$setValidity('validUserNameAndPassword', false);
           }
