@@ -10,11 +10,6 @@ angular.module('videoPortal').controller('VideoDetailController', ['VideoService
     },
     fetchRating: VideoService.fetchRating,
     setRating: VideoService.setRating,
-    // setRating: function(id) {
-    //   return function (data) {
-    //     VideoService.setRating(id, data.rating);
-    //   };
-    // }
   });
   Promise.all([
     VideoService.getVideo($routeParams.id),

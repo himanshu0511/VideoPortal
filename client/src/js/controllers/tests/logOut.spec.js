@@ -1,17 +1,13 @@
 describe('LogOutController', function() {
   beforeEach(function() {
       module('videoPortal');
-      module('templates');
     }
   );
 
   let $controller, $templateCache, $compile, $rootScope;
 
-  beforeEach(inject(function(_$controller_, _$templateCache_, _$compile_, _$rootScope_){
+  beforeEach(inject(function(_$controller_){
     $controller = _$controller_;
-    $templateCache = _$templateCache_;
-    $compile = _$compile_;
-    $rootScope = _$rootScope_;
   }));
 
   it('logout service call correctly called', function() {
