@@ -44,7 +44,7 @@ describe('LoginController', function() {
   describe('validations', function() {
     it('username is required', function() {
       let $scope = $rootScope.$new();
-      let templateHtml = $templateCache.get('src/views/login.html')
+      let templateHtml = $templateCache.get('src/views/login.html');
       let formElem = angular.element("<div>" + templateHtml + "</div>");
       const controller = $controller('LoginController', { $scope: $scope, UserService: {
         authenticate: () => {return {then: function(callback) { callback(); return {catch: function(errorCallback) {}}}}},
@@ -56,7 +56,7 @@ describe('LoginController', function() {
 
     it('password is required', function() {
       let $scope = $rootScope.$new();
-      let templateHtml = $templateCache.get('src/views/login.html')
+      let templateHtml = $templateCache.get('src/views/login.html');
       let formElem = angular.element("<div>" + templateHtml + "</div>");
       const controller = $controller('LoginController', { $scope: $scope, UserService: {
         authenticate: () => {return {then: function(callback) { callback(); return {catch: function(errorCallback) {}}}}},
@@ -68,7 +68,7 @@ describe('LoginController', function() {
 
     it('username min length is 2', function() {
       let $scope = $rootScope.$new();
-      let templateHtml = $templateCache.get('src/views/login.html')
+      let templateHtml = $templateCache.get('src/views/login.html');
       let formElem = angular.element("<div>" + templateHtml + "</div>");
       const controller = $controller('LoginController', { $scope: $scope, UserService: {
         authenticate: () => {return {then: function(callback) { callback(); return {catch: function(errorCallback) {}}}}},
@@ -85,7 +85,7 @@ describe('LoginController', function() {
 
     it('username min length is 20', function() {
       let $scope = $rootScope.$new();
-      let templateHtml = $templateCache.get('src/views/login.html')
+      let templateHtml = $templateCache.get('src/views/login.html');
       let formElem = angular.element("<div>" + templateHtml + "</div>");
       const controller = $controller('LoginController', { $scope: $scope, UserService: {
         authenticate: () => {return {then: function(callback) { callback(); return {catch: function(errorCallback) {}}}}},
@@ -102,7 +102,7 @@ describe('LoginController', function() {
 
     it('password min length is 6', function() {
       let $scope = $rootScope.$new();
-      let templateHtml = $templateCache.get('src/views/login.html')
+      let templateHtml = $templateCache.get('src/views/login.html');
       let formElem = angular.element("<div>" + templateHtml + "</div>");
       const controller = $controller('LoginController', { $scope: $scope, UserService: {
         authenticate: () => {return {then: function(callback) { callback(); return {catch: function(errorCallback) {}}}}},
@@ -119,7 +119,7 @@ describe('LoginController', function() {
 
     it('password max length is 50', function() {
       let $scope = $rootScope.$new();
-      let templateHtml = $templateCache.get('src/views/login.html')
+      let templateHtml = $templateCache.get('src/views/login.html');
       let formElem = angular.element("<div>" + templateHtml + "</div>");
       const controller = $controller('LoginController', { $scope: $scope, UserService: {
         authenticate: () => {return {then: function(callback) { callback(); return {catch: function(errorCallback) {}}}}},
@@ -136,7 +136,7 @@ describe('LoginController', function() {
 
     it('On username or password error invalidate form', function() {
       let $scope = $rootScope.$new();
-      let templateHtml = $templateCache.get('src/views/login.html')
+      let templateHtml = $templateCache.get('src/views/login.html');
       let formElem = angular.element("<div>" + templateHtml + "</div>");
       const controller = $controller('LoginController', { $scope: $scope, UserService: {
         authenticate: () => {return {then: function(callback) { return {catch: function(errorCallback) { errorCallback({data: {code: 'InvalidUserNameOrPassword'}})}}}}},

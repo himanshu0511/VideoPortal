@@ -51,7 +51,7 @@ module.exports = function(config) {
       'client/src/js/services/video.js',
       'client/index.html',
       'client/src/views/*.html',
-      'client/src/js/controllers/tests/login.spec.js'
+      'client/src/js/controllers/tests/*.spec.js'
     ],
 
 
