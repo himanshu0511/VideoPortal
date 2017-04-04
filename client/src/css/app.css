@@ -982,6 +982,10 @@ Direction
 	color: red;
 	flex: 1;
 }
+
+.login-form input.error{
+    border: 1px solid red;
+}
 /*.unselected-box {*/
     /*display: flex;*/
     /*flex-direction: row;*/

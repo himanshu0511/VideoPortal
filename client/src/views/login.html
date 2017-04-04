@@ -1,6 +1,6 @@
 <form ng-submit="login(loginForm)" name="loginForm" class="login-form" novalidate>
     <div class='element-group'>
-        <input id="username" type="text" name="username" placeholder="Username" ng-required="formParams.username.required" ng-minlength="formParams.username.minLength" ng-maxlength="formParams.username.maxLength" ng-pattern="formParams.username.pattern" ng-model="loginFormData.username">
+        <input id="username" ng-change="clearServerError()" ng-class="{error: (loginForm.$submitted&& (loginForm.username.$invalid || loginForm.$error.validUserNameAndPassword))}" type="text" name="username" placeholder="Username" ng-required="formParams.username.required" ng-minlength="formParams.username.minLength" ng-maxlength="formParams.username.maxLength" ng-pattern="formParams.username.pattern" ng-model="loginFormData.username">
         <div ng-if="loginForm.$submitted" ng-messages="loginForm.username.$error">
             <span class="error" ng-message="required">You did not enter a field</span>
             <span class="error" ng-message="minlength">Minimum Length Required {{ formParams.username.minLength }}.</span>
@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class='element-group'>
-        <input id="password" type="password" name="password" placeholder="Password" ng-required="formParams.password.required" ng-minlength="formParams.password.minLength" ng-maxlength="formParams.password.maxLength" ng-model="loginFormData.password">
+        <input id="password" ng-change="clearServerError()" ng-class="{error: (loginForm.$submitted&& (loginForm.password.$invalid || loginForm.$error.validUserNameAndPassword))}" type="password" name="password" placeholder="Password" ng-required="formParams.password.required" ng-minlength="formParams.password.minLength" ng-maxlength="formParams.password.maxLength" ng-model="loginFormData.password">
         <div ng-if="loginForm.$submitted" ng-messages="loginForm.password.$error">
             <span class="error" ng-message="required">You did not enter a field</span>
             <span class="error" ng-message="minlength">Minimum Length Required {{ formParams.password.minLength }}.</span>
@@ -17,7 +17,10 @@
         </div>
     </div>
     <button type="submit">Login</button>
-    <!--<div class='common-error-wrapper'>-->
-        <!--<span class='common-error error'>Username Or Password is Wrong</span>-->
-    <!--</div>-->
+    <div class='common-error-wrapper error' ng-if="loginForm.$error.validUserNameAndPassword">
+        <span class='common-error error'>Username Or Password is Wrong</span>
+    </div>
+    <div class='common-error-wrapper error' ng-if="loginForm.$error.serverStatus">
+        <span class='common-error error'>Something Went wrong</span>
+    </div>
 </form>

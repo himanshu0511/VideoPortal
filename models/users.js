@@ -76,7 +76,8 @@ userModel.authUser = function(username, password){
 			var response = {};
 			response.status = 'error';
 			response.error = 'Invalid username or password';
-		  	results.resolve(response);
+			response.code = 'InvalidUserNameOrPassword';
+		  	results.reject(response);
 		}
 	});
 

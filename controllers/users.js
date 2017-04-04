@@ -15,8 +15,13 @@ users.auth = function (req, res) {
 
 	user.then(function(users){
 		res.send(users);
-	}, function(){
-		res.send({status:'error',error:'Error occured while fetching data from database.', code: 'DatabaseError' });
+	}, function(error){
+		if(error.code === 'InvalidUserNameOrPassword'){
+			res.status(400).send(error);
+		}
+		else {
+      res.status(500).send({status: 'error', error: 'Error occured while fetching data from database.', code: 'DatabaseError'});
+    }
 	});
 
 };
