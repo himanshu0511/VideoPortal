@@ -13,9 +13,9 @@ angular-cookies@^1.6.4:
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/angular-cookies/-/angular-cookies-1.6.4.tgz#c28f3f6aac7a9826c1e45f1d6807240036e5b26d"
 
-angular-jk-rating-stars@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/angular-jk-rating-stars/-/angular-jk-rating-stars-1.0.6.tgz#138b8743528f9c30a1fa92de705a07cb3083830e"
+angular-messages@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/angular-messages/-/angular-messages-1.6.4.tgz#9ec9c1393293b14de54161d2f849776489e980fe"
 
 angular-resource@^1.6.4:
   version "1.6.4"

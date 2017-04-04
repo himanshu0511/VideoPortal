@@ -1,11 +1,20 @@
-<form ng-submit="login(loginForm)" name="loginForm" novalidate="" class="ng-pristine ng-valid ng-scope login-form">
+<form ng-submit="login(loginForm)" name="loginForm" class="login-form" novalidate>
     <div class='element-group'>
-        <input id="username" type="text" name="username" placeholder="Username" ng-model="loginFormData.userName">
-        <!--<span class=error>User name in wrong format</span>-->
+        <input id="username" type="text" name="username" placeholder="Username" ng-required="formParams.username.required" ng-minlength="formParams.username.minLength" ng-maxlength="formParams.username.maxLength" ng-pattern="formParams.username.pattern" ng-model="loginFormData.username">
+        <div ng-if="loginForm.$submitted" ng-messages="loginForm.username.$error">
+            <span class="error" ng-message="required">You did not enter a field</span>
+            <span class="error" ng-message="minlength">Minimum Length Required {{ formParams.username.minLength }}.</span>
+            <span class="error" ng-message="maxlength">Maximum Length Required {{ formParams.username.maxLength }}.</span>
+            <span class="error" ng-message="pattern">Invalid format</span>
+        </div>
     </div>
     <div class='element-group'>
-        <input id="password" type="password" name="password" placeholder="Password" ng-model="loginFormData.password">
-        <!--<span class=error>Password is wrong</span>-->
+        <input id="password" type="password" name="password" placeholder="Password" ng-required="formParams.password.required" ng-minlength="formParams.password.minLength" ng-maxlength="formParams.password.maxLength" ng-model="loginFormData.password">
+        <div ng-if="loginForm.$submitted" ng-messages="loginForm.password.$error">
+            <span class="error" ng-message="required">You did not enter a field</span>
+            <span class="error" ng-message="minlength">Minimum Length Required {{ formParams.password.minLength }}.</span>
+            <span class="error" ng-message="maxlength">Maximum Length Required {{ formParams.password.maxLength }}.</span>
+        </div>
     </div>
     <button type="submit">Login</button>
     <!--<div class='common-error-wrapper'>-->

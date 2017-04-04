@@ -1,4 +1,4 @@
-angular.module('videoPortal', ['ngRoute', 'ngCookies', 'ngResource', 'jkAngularRatingStars', function(){}]);
+angular.module('videoPortal', ['ngRoute', 'ngCookies', 'ngResource', 'jkAngularRatingStars', 'ngMessages', function(){}]);
 angular.module('videoPortal').run(["$rootScope", "$location", "UserService", function($rootScope, $location, UserService){
   $rootScope.$on("$routeChangeStart", function(evt, to, from) {
       // requires authorization?

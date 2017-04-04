@@ -13,20 +13,21 @@
     </head>
 <body ng-app="videoPortal">
     <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience and security.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
     <div class="header-container" ng-controller="HeaderController">
         <h3>Video Portal</h3>
         <h4 ng-if="userData && userData.userName" ng-bind="userData.userName"></h4>
-        <h4> <a href='/logout'>Logout</a> </h4>
+        <h4 ng-if="userData && userData.sessionId"> <a href='/logout'>Logout</a> </h4>
     </div>
     <div ng-view></div>
     <script type="text/javascript" src="/lib/angular/angular.js"></script>
     <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="/lib/angular-cookies/angular-cookies.js"></script>
+    <script type="text/javascript" src="/lib/angular-messages/angular-messages.js"></script>
     <script type="text/javascript" src="/src/js/portal-lib/jk-rating-stars.js"></script>
     <script type="text/javascript" src="/src/js/app.js"></script>
     <script type="text/javascript" src="/src/js/resources.js"></script>
@@ -36,6 +37,7 @@
     <script type="text/javascript" src="/src/js/controllers/header.js"></script>
     <script type="text/javascript" src="/src/js/controllers/videoList.js"></script>
     <script type="text/javascript" src="/src/js/controllers/videoDetail.js"></script>
+    <script type="text/javascript" src="/src/js/services/constants.js"></script>
     <script type="text/javascript" src="/src/js/services/user.js"></script>
     <script type="text/javascript" src="/src/js/services/video.js"></script>
     </body>
