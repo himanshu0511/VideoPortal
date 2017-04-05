@@ -12,9 +12,9 @@ angular.module('videoPortal').controller('VideoListController', ['VideoService',
       $scope.$apply();
     })
     .catch(function(error) {
-      debugger;
       if(error && error.data && error.data.code === 'NotLoggedIn'){
         $location.path('/');
+        $scope.$apply();
       }
     });
 }]);

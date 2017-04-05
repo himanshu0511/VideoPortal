@@ -13,7 +13,6 @@ angular.module('videoPortal').controller('HeaderController', ['UserService', '$s
   }
   $rootScope.$on('UserLoggedIn', function(){
     updateHeaders();
-    debugger;
   });
   $rootScope.$on('UserLoggedOut', function(){
    updateHeaders();

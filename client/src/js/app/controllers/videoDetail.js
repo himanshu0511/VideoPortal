@@ -23,6 +23,7 @@ angular.module('videoPortal').controller('VideoDetailController', ['VideoService
     .catch(function(error) {
       if(error && error.data && error.data.code === 'NotLoggedIn'){
         $location.path('/');
+        $scope.$apply();
       }
     });
 }]);
