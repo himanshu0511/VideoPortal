@@ -1,9 +1,9 @@
 angular.module('videoPortal').factory('VideoService', ['VideoApi', 'UserService', function(VideoApi, UserService){
   function aggregateRating(video){
-      if(video && video.ratings && video.ratings.reduce) {
+      if(video && video.ratings && video.ratings.length !== 0 && video.ratings.reduce) {
         return Math.round(video.ratings.reduce((agg, a) => agg + a, 0) / video.ratings.length);
       }
-        return 0;
+      return 0;
     }
   return {
     getVideos: function() {

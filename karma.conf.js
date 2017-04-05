@@ -37,21 +37,22 @@ module.exports = function(config) {
       'node_modules/angular-resource/angular-resource.js',
       'node_modules/angular-cookies/angular-cookies.js',
       'node_modules/angular-messages/angular-messages.js',
-      'client/src/js/portal-lib/jk-rating-stars.js',
-      'client/src/js/app.js',
-      'client/src/js/resources.js',
-      'client/src/js/routes.js',
-      'client/src/js/controllers/login.js',
-      'client/src/js/controllers/logOut.js',
-      'client/src/js/controllers/header.js',
-      'client/src/js/controllers/videoList.js',
-      'client/src/js/controllers/videoDetail.js',
-      'client/src/js/services/constants.js',
-      'client/src/js/services/user.js',
-      'client/src/js/services/video.js',
+      'client/src/js/lib/jk-rating-stars.js',
+      'client/src/js/app/app.js',
+      'client/src/js/app/resources.js',
+      'client/src/js/app/routes.js',
+      'client/src/js/app/controllers/login.js',
+      'client/src/js/app/controllers/logOut.js',
+      'client/src/js/app/controllers/header.js',
+      'client/src/js/app/controllers/videoList.js',
+      'client/src/js/app/controllers/videoDetail.js',
+      'client/src/js/app/services/constants.js',
+      'client/src/js/app/services/user.js',
+      'client/src/js/app/services/video.js',
       'client/index.html',
       'client/src/views/*.html',
-      'client/src/js/controllers/tests/*.spec.js'
+      'client/src/js/app/controllers/tests/*.spec.js',
+      'client/src/js/app/services/tests/*.spec.js'
     ],
 
 
@@ -63,7 +64,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.html': ['ng-html2js']
+      '**/*.html': ['ng-html2js'],
+      'client/src/js/app/**/*.js': ['coverage'],
     },
 
     ngHtml2JsPreprocessor: {
@@ -76,9 +78,12 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
-
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
     // web server port
     port: 9876,
 
