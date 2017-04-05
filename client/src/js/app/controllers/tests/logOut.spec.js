@@ -26,7 +26,7 @@ describe('LogOutController', function() {
     expect(UserService.logOut).toHaveBeenCalled();
   });
 
-  it('redirection to correct url', function() {
+  it('on success redirection to login page', function() {
     const UserService = {
       logOut: jasmine.createSpy()
         .and.returnValue({
@@ -34,6 +34,27 @@ describe('LogOutController', function() {
               successCallback();
               return {
                 catch: function(errorCallback){ }
+              };
+            },
+          }),
+    };
+
+    const $location = {
+      path: jasmine.createSpy(),
+    };
+
+    const controller = $controller('LogOutController', { UserService, $location });
+    expect($location.path).toHaveBeenCalledWith('/');
+  });
+
+  it('on failure redirection to login page', function() {
+    const UserService = {
+      logOut: jasmine.createSpy()
+        .and.returnValue({
+            then: function(successCallback){
+              // successCallback();
+              return {
+                catch: function(errorCallback){ errorCallback()}
               };
             },
           }),

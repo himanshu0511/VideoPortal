@@ -7,16 +7,6 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-// logLevel: config.LOG_DEBUG,
-// client: {
-//   captureConsole: true,
-//   browserConsoleLogOptions: {
-//       level: 'log',
-//       format: '%b %T: %m',
-//       terminal: true
-//     }
-//
-// },
     browserConsoleLogOptions: {
       terminal: true,
       level: ""

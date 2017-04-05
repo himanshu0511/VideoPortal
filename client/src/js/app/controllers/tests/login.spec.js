@@ -148,5 +148,58 @@ describe('LoginController', function() {
       $scope.login($scope.loginForm);
       expect($scope.loginForm.$error.validUserNameAndPassword).toBeTruthy();
     });
+    it('On server error invalidate form', function() {
+      let $scope = $rootScope.$new();
+      let templateHtml = $templateCache.get('src/views/login.html');
+      let formElem = angular.element("<div>" + templateHtml + "</div>");
+      const controller = $controller('LoginController', { $scope: $scope, UserService: {
+        authenticate: () => {return {then: function(callback) { return {catch: function(errorCallback) { errorCallback({data: {code: 'randomError'}})}}}}},
+      } });
+      $scope.loginFormData.password = '123456';
+      $scope.loginFormData.username = 'testuser';
+      $compile(formElem)($scope);
+      $scope.$apply();
+      $scope.login($scope.loginForm);
+      expect($scope.loginForm.$error.serverStatus).toBeTruthy();
+    });
   });
+  describe('api call success', function(){
+
+    it('redirects to /play-list', function() {
+      let $scope = $rootScope.$new();
+      let templateHtml = $templateCache.get('src/views/login.html');
+      let formElem = angular.element("<div>" + templateHtml + "</div>");
+      let $location = {
+        path: jasmine.createSpy(),
+      };
+      const controller = $controller('LoginController', { $location, $scope, UserService: {
+        authenticate: () => {return {then: function(callback) { callback(); return {catch: function(errorCallback) { }}}}},
+      } });
+      $scope.loginFormData.password = '123456';
+      $scope.loginFormData.username = 'testuser';
+      $compile(formElem)($scope);
+      $scope.$apply();
+      $scope.login($scope.loginForm);
+      expect($location.path).toHaveBeenCalledWith('/play-list');
+    });
+
+    it('broadcat event UserLoggedIn', function() {
+      let $scope = $rootScope.$new();
+      let templateHtml = $templateCache.get('src/views/login.html');
+      let formElem = angular.element("<div>" + templateHtml + "</div>");
+      let $location = {
+        path: jasmine.createSpy(),
+      };
+      spyOn($rootScope, '$broadcast').and.callThrough();
+      const controller = $controller('LoginController', { $location, $scope, UserService: {
+        authenticate: () => {return {then: function(callback) { callback(); return {catch: function(errorCallback) { }}}}},
+      } });
+      $scope.loginFormData.password = '123456';
+      $scope.loginFormData.username = 'testuser';
+      $compile(formElem)($scope);
+      $scope.$apply();
+      $scope.login($scope.loginForm);
+      expect($rootScope.$broadcast).toHaveBeenCalledWith('UserLoggedIn');
+    });
+  })
 });
