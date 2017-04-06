@@ -20,9 +20,10 @@
                         if (!c(t)) return e.push(t), e;
                         switch (t.tagName) {
                             case "SOURCE":
-
-                                t.src = n;
-                                t.parentNode.load();
+                                // if(t && !t.src) {
+                                  t.src = n;
+                                  t.parentNode.load();
+                                // }
                                 break;
                             default:
                                 e.push(t)

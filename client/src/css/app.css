@@ -178,6 +178,18 @@ body {
     background: #555;
 }
 
+.box-ele {
+    opacity: 1;
+}
+.box-ele.ng-enter {
+    -webkit-transition: 800ms;
+    transition: 800ms;
+    opacity: 0.1;
+}
+.box-ele.ng-enter-active {
+    opacity: 1;
+}
+
 @media (min-width:801px) {
 
     .box {

@@ -1,5 +1,5 @@
 <div class="wrapper video-list">
-    <div class="box" ng-repeat="video in data.videos" ng-click="watchVideo(video._id)">
+    <div class="box box-ele" ng-animate="'animate'" ng-repeat="video in data.videos" ng-click="watchVideo(video._id)">
         <h5 ng-bind="video.name"></h5>
         <video class="video-ele" angular-lazy-load>
           <source type="video/mp4" ng-if="video.url" data-src="/{{video.url}}">

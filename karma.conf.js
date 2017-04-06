@@ -27,6 +27,7 @@ module.exports = function(config) {
       'node_modules/angular-resource/angular-resource.js',
       'node_modules/angular-cookies/angular-cookies.js',
       'node_modules/angular-messages/angular-messages.js',
+      'node_modules/angular-animate/angular-animate.js',
       'client/src/js/lib/jk-rating-stars.js',
       'client/src/js/lib/angular-lazy-loader.js',
       'client/src/js/app/app.js',
@@ -94,7 +95,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox', 'Safari'],
+    browsers: ['Chrome', 'Firefox'],
 
 
     // Continuous Integration mode

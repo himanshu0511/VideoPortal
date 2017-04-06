@@ -18,6 +18,7 @@ angular.module('videoPortal').controller('VideoDetailController', ['VideoService
     .then(function([video, videos]){
       Object.assign($scope.data.video, video);
       Object.assign($scope.data.videos, videos);
+      $window.scrollTo(0, 0);
       $scope.$apply();
     })
     .catch(function(error) {
