@@ -1,4 +1,7 @@
 angular.module('videoPortal').factory('ConstantService', [function(){
+  /**
+   * Constants use for form validation
+   */
   return {
     login: {
       username: {
