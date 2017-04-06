@@ -21,8 +21,8 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}ar
 
 .wrapper {
 	display: flex;
-	flex-direction: row;
-	width: 95%;
+	flex-direction: column;
+	width: 100%;
 	margin: 5px auto;
 	flex-wrap: wrap;
 }
@@ -42,6 +42,43 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}ar
 	text-shadow: 4px 4px 0 rgpa(0,0,0,0.1);
 }
 
+.box.selected-box {
+	height: 100%;
+    min-height: 551px;
+}
+
+.box.selected-box .video-ele{
+    height: 347px;
+}
+
+.unselected-container {
+	flex: auto;
+}
+.box.unselected-box .content{
+	display: flex;
+    flex-direction: column;
+    max-height: 106px;
+    min-height: 106px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding-left: 4px;
+}
+.box.unselected-box .content video.video-ele {
+    max-width: 40%;
+}
+
+.box.unselected-box .content .jk-rating-stars-container {
+    max-width: 40%;
+}
+
+.box.unselected-box .content .jk-rating-stars-container a i {
+	font-size: 21px;
+}
+
+.box.unselected-box .content p {
+    max-width: 175px;
+	overflow: scroll;
+}
 
 .header-container{
 	/*margin: 0px auto;*/
@@ -136,17 +173,9 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}ar
 .login-form input.error{
     border: 1px solid red;
 }
-/*.unselected-box {*/
-    /*display: flex;*/
-    /*flex-direction: row;*/
-/*}*/
-/*.unselected-box .video-ele{*/
-    /*flex: 4;*/
-/*}*/
 
 body {
     background: #555;
-    /*background: #1AA8D6;*/
 }
 
 @media (min-width:801px) {
@@ -156,13 +185,54 @@ body {
         max-width: 20%;
     }
 
-    .selected-box.selected-box {
-        min-width: 84.5%;
-        max-width: 84.5%;
+    .box.selected-box {
+		flex: 75;
+        min-width: 75%;
+        max-width: 80%;
+    	min-height: 100%;
     }
 
+	.box.selected-box .video-ele {
+    	max-height: 80%;
+		height: 600px;
+    }
+
+	.unselected-container {
+		flex: 25;
+		max-height: 100%;
+		overflow: scroll;
+		height: 800px;
+	}
+
+	.box.unselected-box {
+		min-width: 200px;
+		max-width: 520px;
+		min-height: 170px;
+		max-height: 170px;
+	}
+
+	.wrapper {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		max-width: 1430px;
+		margin: -2px -10px;
+		flex-wrap: wrap;
+		max-height: 100%;
+		height: 800px;
+	}
+
+	.video-list {
+		margin: 10px 20px;
+		padding: 10px 20px;
+	}
+
+	.video-list .box {
+		margin: 10px 10px;
+	}
+
     .header-container{
-        width: 95%;
+        width: 100%;
     }
 
     .header-container h3{

@@ -1,4 +1,4 @@
-angular.module('videoPortal').controller('VideoDetailController', ['VideoService', '$scope', '$routeParams', '$location', function(VideoService, $scope, $routeParams, $location){
+angular.module('videoPortal').controller('VideoDetailController', ['VideoService', '$scope', '$routeParams', '$location', '$window', '$timeout', function(VideoService, $scope, $routeParams, $location, $window, $timeout){
   $scope = Object.assign($scope, {
     data: {
       id: $routeParams.id,
@@ -26,5 +26,12 @@ angular.module('videoPortal').controller('VideoDetailController', ['VideoService
         $scope.$apply();
       }
     });
+    $timeout(function(){
+      let element = $window.document.getElementById($routeParams.id);
+      if(element) {
+        element.scrollIntoView(true);
+        element.focus();
+      }
+    }, 500);
 }]);
 
