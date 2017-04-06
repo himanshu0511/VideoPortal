@@ -28,6 +28,7 @@ module.exports = function(config) {
       'node_modules/angular-cookies/angular-cookies.js',
       'node_modules/angular-messages/angular-messages.js',
       'client/src/js/lib/jk-rating-stars.js',
+      'client/src/js/lib/angular-lazy-loader.js',
       'client/src/js/app/app.js',
       'client/src/js/app/resources.js',
       'client/src/js/app/routes.js',
@@ -93,7 +94,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'Firefox', 'Safari'],
 
 
     // Continuous Integration mode
@@ -104,4 +105,4 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity
   })
-}
+};
