@@ -1,9 +1,23 @@
 angular.module('videoPortal').controller('LoginController', ['UserService', 'ConstantService', '$scope', '$location', '$rootScope', function(UserService, constants, $scope, $location, $rootScope){
+  /**
+   * Initialize scope for first load
+   * @type {{username: string, password: string}}
+   */
   $scope.loginFormData = {
     username: '',
     password: ''
   };
+
+  /**
+   * Set form contants for validation
+   * @type {*}
+   */
   $scope.formParams = constants.login;
+
+  /**
+   * Function to make call to login and set server errors
+   * @param form
+   */
   $scope.login = function(form){
     form.$setSubmitted();
     form.$setValidity('validUserNameAndPassword', true);
@@ -24,6 +38,10 @@ angular.module('videoPortal').controller('LoginController', ['UserService', 'Con
         })
     }
   };
+
+  /**
+   * Function to clear server when user inputs value in any field
+   */
   $scope.clearServerError = function(){
     $scope.loginForm.$setValidity('validUserNameAndPassword', true);
     $scope.loginForm.$setValidity('serverStatus', true);

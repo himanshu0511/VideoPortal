@@ -1,11 +1,10 @@
 angular.module("videoPortal")
 
 
-/*
- * Resource to get the details of a Candidate
- *
+/**
+ * Resource to get Video Resource from backend
  */
-.factory("VideoApi", ["$resource", function($resource) {
+  .factory("VideoApi", ["$resource", function($resource) {
   return $resource('/videos', {
     id: "@id"
   }, {
@@ -27,7 +26,10 @@ angular.module("videoPortal")
   });
 }])
 
-.factory("UserApi", ["$resource", function($resource) {
+/**
+ * Resource to authenticate, logout user
+ */
+  .factory("UserApi", ["$resource", function($resource) {
   return $resource('/user/auth', {
     id: "@id"
   }, {

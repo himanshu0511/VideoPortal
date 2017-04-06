@@ -1,24 +1,15 @@
 /*! normalize.css v6.0.0 | MIT License | github.com/necolas/normalize.css */
 html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}/*# sourceMappingURL=normalize.min.css.map */
 
+/* generic standardization */
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border; }
 
-.box h5 {
-    font-size: 17px;
-    margin-top: 9px;
-    margin-bottom: 9px;
-}
-.box p {
-	font-size: 11px;
-	display: block;
+/* setting background color */
+body {
+    background: #555;
 }
 
-.box .video-ele {
-	width: 90%;
-}
-
-/* flex css */
-
+/* video cart styling */
 .wrapper {
 	display: flex;
 	flex-direction: column;
@@ -40,6 +31,20 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}ar
 	color: black;
 	text-align: center;
 	text-shadow: 4px 4px 0 rgpa(0,0,0,0.1);
+}
+
+.box h5 {
+    font-size: 17px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+.box p {
+	font-size: 11px;
+	display: block;
+}
+
+.box .video-ele {
+	width: 90%;
 }
 
 .box.selected-box {
@@ -80,15 +85,21 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}ar
 	overflow: scroll;
 }
 
+/* cart animations */
+.box-ele {
+    opacity: 1;
+}
+.box-ele.ng-enter {
+    -webkit-transition: 800ms;
+    transition: 800ms;
+    opacity: 0.1;
+}
+.box-ele.ng-enter-active {
+    opacity: 1;
+}
+
+/* Header styling */
 .header-container{
-	/*margin: 0px auto;*/
-	/*height: 70px;*/
-	/*width: 90%;*/
-    /*padding: 5px;*/
-	/*background: #F5F5F5;*/
-	/*font-size: 20px;*/
-	/*display: flex;*/
-	/*flex-direction: row;*/
 	width: 103%;
     padding: 0px 0px 0px 2px;
     background: #333;
@@ -119,7 +130,7 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}ar
 	color: #777;
 }
 
-
+/* login form styling */
 .login-form {
     margin: 35% 10% 0 10%;
     max-width: 80%;
@@ -174,23 +185,19 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}ar
     border: 1px solid red;
 }
 
-body {
-    background: #555;
-}
-
-.box-ele {
-    opacity: 1;
-}
-.box-ele.ng-enter {
-    -webkit-transition: 800ms;
-    transition: 800ms;
-    opacity: 0.1;
-}
-.box-ele.ng-enter-active {
-    opacity: 1;
-}
-
+/* desktop specific styling */
 @media (min-width:801px) {
+
+	.wrapper {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		max-width: 1430px;
+		margin: -2px -10px;
+		flex-wrap: wrap;
+		max-height: 100%;
+		height: 800px;
+	}
 
     .box {
         min-width: 20%;
@@ -223,17 +230,6 @@ body {
 		max-height: 170px;
 	}
 
-	.wrapper {
-		display: flex;
-		flex-direction: row;
-		width: 100%;
-		max-width: 1430px;
-		margin: -2px -10px;
-		flex-wrap: wrap;
-		max-height: 100%;
-		height: 800px;
-	}
-
 	.video-list {
 		margin: 10px 20px;
 		padding: 10px 20px;
@@ -258,7 +254,6 @@ body {
         max-width: 20%;
         display: flex;
         flex-direction: column;
-        /* border-radius: 5px; */
         padding: 16px;
         box-shadow: 2px 3px 7px #03556f;
         height: 250px;
