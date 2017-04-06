@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
         <link rel="stylesheet" href="/src/css/jk-rating-stars.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
 
     <!-- Add your site or application content here -->
     <div class="header-container" ng-controller="HeaderController">
-        <h3>Video Portal</h3>
+        <h3><a href="/play-list">Video Portal</a></h3>
         <h4 ng-if="userData && userData.userName" ng-bind="userData.userName"></h4>
         <h4 ng-if="userData && userData.sessionId"> <a href='/logout'>Logout</a> </h4>
     </div>

@@ -11,6 +11,7 @@ angular.module('videoPortal').controller('HeaderController', ['UserService', '$s
        $scope.$apply();
      });
   }
+  updateHeaders();
   $rootScope.$on('UserLoggedIn', function(){
     updateHeaders();
   });
